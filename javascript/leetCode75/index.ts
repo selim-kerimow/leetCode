@@ -64,4 +64,29 @@ function isSubsequence(s: string, t: string): boolean {
   return indexS === s.length;
 };
 
-console.log(isSubsequence('ace', "abcde"))
+
+
+
+
+
+// https://leetcode.com/problems/reverse-vowels-of-a-string/?envType=study-plan-v2&envId=leetcode-75
+function reverseVowels(s: string) {
+
+  const syllables = s.replaceAll(/[aeiou]/gi, '|');
+  const vowels = s.replaceAll(/[^aeiou]/gi, '');
+
+  let index = vowels.length - 1;
+  let result = '';
+
+  for (let i = 0; i < syllables.length; i++) {
+    if (syllables[i] == '|') {
+      result += vowels[index];
+      index--;
+    }
+    else result += syllables[i];
+  }
+
+  return result;
+};
+
+console.log(reverseVowels('A man, a plan, a canal -- Panama'))
