@@ -89,4 +89,13 @@ function reverseVowels(s: string) {
   return result;
 };
 
-console.log(reverseVowels('A man, a plan, a canal -- Panama'))
+
+
+
+
+// https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=leetcode-75
+function reverseWords(s: string): string {
+  return s.split(' ').reverse().filter(i => !!i).join(' ');
+};
+
+console.log(reverseWords(' a good   example '));
