@@ -5,5 +5,17 @@ function createHelloWorld() {
   };
 };
 
-const f = createHelloWorld();
-console.log(f()) // "Hello World"
+
+
+
+// https://leetcode.com/problems/counter/description/?envType=study-plan-v2&envId=30-days-of-javascrip
+function createCounter(n: number): () => number {
+  return function() { return n++ }
+}
+
+
+
+const counter = createCounter(10)
+console.log(counter())
+console.log(counter())
+console.log(counter())
