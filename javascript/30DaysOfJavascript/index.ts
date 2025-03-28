@@ -15,7 +15,26 @@ function createCounter(n: number): () => number {
 
 
 
-const counter = createCounter(10)
-console.log(counter())
-console.log(counter())
-console.log(counter())
+
+// https://leetcode.com/problems/to-be-or-not-to-be/?envType=study-plan-v2&envId=30-days-of-javascript
+function expect(val: any): {
+  toBe: (val: any) => boolean;
+  notToBe: (val: any) => any;
+} {
+
+  const toBe = (check: any) => {
+    if (val === check) return true;
+    throw new Error("Not Equal");
+  };
+
+  const notToBe = (check: any) => {
+    if (val !== check) return true;
+    throw new Error("Equal");
+  };
+
+  return { toBe, notToBe };
+};
+
+
+console.log(expect(5).toBe(5)); // true
+console.log(expect(5).notToBe(null)); // throws "Equal"
